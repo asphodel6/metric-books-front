@@ -1,3 +1,5 @@
+@import "src/styles";
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -10,12 +12,13 @@
 .nav {
   display: flex;
   width: 248px;
-  margin: 6px 0;
+  gap: 26px;
   justify-content: space-between;
   align-items: center;
 }
 
 .search {
+  margin-left: 10px;
   display: flex;
   width: 776px;
   height: 32px;
@@ -25,10 +28,18 @@
 }
 
 input {
-  width: 95%;
+  width: 94%;
   border: none;
   height: 90%;
   outline: none;
 }
 
+img {
+  margin: 0 10px;
+}
+
+.active {
+  box-shadow: 0 0 4px 0 #45618D80;
+  border: solid 1px @color-blue;
+}
 

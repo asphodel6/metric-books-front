@@ -3,8 +3,8 @@
     <div>Уезды</div>
     <div>Населенные пункты</div>
   </div>
-  <div class="search">
-    <img src="assets/images/lupa.svg" width="16px" height="16px">
-    <input type="text" placeholder="Поиск">
+  <div [ngClass]="{'search': true, 'active': isFocused}">
+    <img [src]="imgPath" width="16px" height="16px">
+    <input type="text" placeholder="Поиск" (focus)="onFocus()" (blur)="onBlur()">
   </div>
 </div>
