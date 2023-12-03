@@ -1,0 +1,49 @@
+@import "src/styles";
+
+:host {
+  font-size: 14px;
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  color: @color-blue;
+  gap: 8px;
+
+  span {
+    color: black;
+    margin-left: 8px;
+  }
+}
+
+.edit-panel {
+  display: flex;
+  margin-top: 32px;
+  gap: 16px;
+
+  img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.content {
+  margin-top: 16px;
+}
+
+.title {
+  display: flex;
+  color: #9A9A9A;
+  div {
+    width: 99px;
+    word-break: break-word;
+  }
+}
+
+.data {
+  .title;
+  color: black;
+  margin-top: 8px;
+  border-bottom: 1px solid #E1E1E1
+}
+

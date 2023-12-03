@@ -1,0 +1,33 @@
+<div>
+  <div class="heading">
+    <div>Уезд:<span>{{countyName}}</span></div>
+    <div>Населенный пункт:<span>{{settlementName}}</span></div>
+    <div>Церковь/мечеть:<span>{{churchName}}</span></div>
+  </div>
+  <div class="edit-panel">
+    <img src="assets/images/add-icon.svg">
+    <img src="assets/images/edit-icon.svg">
+    <img src="assets/images/delete-icon.svg">
+    <img src="assets/images/copy-icon.svg">
+  </div>
+  <div class="content">
+    <div class="title">
+      <div>Год</div>
+      <div>Фонд</div>
+      <div>Опись</div>
+      <div>Дело</div>
+      <div>Лист</div>
+      <div>Вид документа</div>
+      <div>Полнота</div>
+    </div>
+    <div class="data" *ngFor="let dataItem of data">
+      <div>{{dataItem.year}}</div>
+      <div>{{dataItem.fund}}</div>
+      <div>{{dataItem.inventory}}</div>
+      <div>{{dataItem.case}}</div>
+      <div>{{dataItem.sheet}}</div>
+      <div>{{dataItem.documentType}}</div>
+      <div>{{dataItem.completeness}}</div>
+    </div>
+  </div>
+</div>
