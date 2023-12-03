@@ -1,1 +1,3 @@
-<p>county works!</p>
+<div class="county" (click)="openInfo()" [ngClass]="isOpen ? 'open' : ''">
+  <img [src]="imgPath" width="8px" height="8px">{{name}}
+</div>

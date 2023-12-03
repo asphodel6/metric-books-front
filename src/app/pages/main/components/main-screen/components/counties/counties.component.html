@@ -1,1 +1,5 @@
-Уезды
+<div class="counties">
+  <ng-container *ngFor="let county of counties">
+    <county [name]="county.name"></county>
+  </ng-container>
+</div>
