@@ -1,7 +1,9 @@
 <div class="header">
   <div class="nav">
-    <div>Уезды</div>
-    <div>Населенные пункты</div>
+    <div (click)="changeContent('Уезды')"
+         [ngClass]="countiesSelected ? 'selected' : 'notSelected'">Уезды</div>
+    <div (click)="changeContent('Населенные пункты')"
+         [ngClass]="countiesSelected ? 'notSelected' : 'selected'" >Населенные пункты</div>
   </div>
   <div [ngClass]="{'search': true, 'active': isFocused}">
     <img [src]="imgPath" width="16px" height="16px">

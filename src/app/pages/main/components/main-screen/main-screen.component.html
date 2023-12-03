@@ -1,11 +1,22 @@
 <div class="screen">
-  <main-header></main-header>
+  <main-header (content)="setContent($event)"></main-header>
   <div class="info">
     <div class="left-block">
-      left side
+      <div class="edit-panel">
+        <img src="assets/images/add-icon.svg">
+        <img src="assets/images/edit-icon.svg">
+        <img src="assets/images/delete-icon.svg">
+      </div>
+      <ng-container *ngIf="content === 'Уезды'; else elseTemplate">
+        <counties></counties>
+      </ng-container>
     </div>
     <div class="right-block">
       right side
     </div>
   </div>
 </div>
+
+<ng-template #elseTemplate>
+  <settlements></settlements>
+</ng-template>
