@@ -1,5 +1,6 @@
-<div class="counties">
-  <ng-container *ngFor="let county of counties">
+<cdk-virtual-scroll-viewport itemSize="25" class="counties">
+  <div *cdkVirtualFor="let county of counties" class="county">
     <county [county]="county"></county>
-  </ng-container>
-</div>
+  </div>
+</cdk-virtual-scroll-viewport>
+
