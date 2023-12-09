@@ -12,5 +12,30 @@ import {CountyComponent} from "./components/county/county.component";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountiesComponent {
-  counties: ICounties[] = [{name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}];
+  counties: ICounties[] = [
+    {
+      name: 'Верхотурский',
+      settlements: [{
+        name: 'Город',
+        churches: ['церковь1', 'церковь2']
+      }]
+    },
+    {
+      name: 'Верхотурский',
+      settlements: [
+        {
+          name: 'Город',
+          churches: ['церковь1', 'церковь2']
+        },
+        {
+          name: 'Город',
+          churches: ['церковь1', 'церковь2']
+        },
+        {
+          name: 'Город',
+          churches: ['церковь1', 'церковь2']
+        },
+      ]
+
+    }, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}, {name: 'Верхотурский'}];
 }

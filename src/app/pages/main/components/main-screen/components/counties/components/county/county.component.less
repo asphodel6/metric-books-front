@@ -6,10 +6,17 @@
   font-size: 14px;
   border-radius: 4px;
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  cursor: pointer;
 }
 
 .open {
   color: @color-blue;
+}
+
+.name {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: flex-start;
 }
