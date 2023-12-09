@@ -1,7 +1,4 @@
-export interface ISettlements {
-  name: string,
-  churches: string[]
-}
+import {ISettlements} from "../../settlements/interfaces/settlements.interface";
 
 export interface ICounties {
   name: string
