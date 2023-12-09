@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {ISettlements} from "../../../../interfaces/counties.interface";
+import {ISettlements} from "../../../../../settlements/interfaces/settlements.interface";
 
 @Component({
   selector: 'county-settlement',

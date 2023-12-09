@@ -1,4 +1,5 @@
 export interface ISettlements {
   name: string,
-  churches: string[]
+  churches: string[],
+  county?: string
 }

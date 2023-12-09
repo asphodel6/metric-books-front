@@ -1,1 +1,5 @@
-Населенные пункты
+<cdk-virtual-scroll-viewport itemSize="25" class="settlements">
+  <div *cdkVirtualFor="let settlement of settlements" class="settlement">
+    <settlement [settlement]="settlement"></settlement>
+  </div>
+</cdk-virtual-scroll-viewport>
