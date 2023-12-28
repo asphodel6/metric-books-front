@@ -1,5 +1,5 @@
 <div class="screen">
-  <main-header (content)="setContent($event)"></main-header>
+  <main-header></main-header>
   <div class="info">
     <div class="left-block">
       <div class="edit-panel">
@@ -7,16 +7,10 @@
         <img src="assets/images/edit-icon.svg">
         <img src="assets/images/delete-icon.svg">
       </div>
-      <ng-container *ngIf="content === 'Уезды'; else elseTemplate">
-        <counties></counties>
-      </ng-container>
+      <router-outlet></router-outlet>
     </div>
     <div class="right-block">
       <settlement-info></settlement-info>
     </div>
   </div>
 </div>
-
-<ng-template #elseTemplate>
-  <settlements></settlements>
-</ng-template>

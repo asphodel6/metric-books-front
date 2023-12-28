@@ -1,20 +1,21 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Output} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {CommonModule, NgClass} from '@angular/common';
-import {ContentType} from "../../interfaces/content.type";
+import {Router, RouterLink, RouterLinkActive} from "@angular/router";
 
 @Component({
   selector: 'main-header',
   standalone: true,
-  imports: [CommonModule, NgClass],
+  imports: [CommonModule, NgClass, RouterLink, RouterLinkActive],
   templateUrl: './main-header.component.html',
   styleUrl: './main-header.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MainHeaderComponent {
-  @Output() content = new EventEmitter<ContentType>();
   isFocused: boolean = false;
   imgPath: string = 'assets/images/lupa.svg';
-  countiesSelected: boolean = true;
+
+  constructor(private readonly router: Router) {
+  }
 
   onFocus(): void {
     this.isFocused = true;
@@ -26,15 +27,11 @@ export class MainHeaderComponent {
     this.imgPath = 'assets/images/lupa.svg';
   }
 
-  changeContent(content: ContentType): void {
-    if (content === 'Уезды') {
-      this.content.emit('Уезды');
-      this.countiesSelected = true;
+  isLinkActive(route: string): string {
+    if (this.router.isActive(route, false)) {
+      return 'selected';
     }
 
-    else if (content === 'Населенные пункты') {
-      this.content.emit('Населенные пункты')
-      this.countiesSelected = false;
-    }
+    return 'notSelected';
   }
 }
