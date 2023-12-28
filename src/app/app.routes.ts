@@ -4,10 +4,11 @@ import {CountiesComponent} from "./pages/main/components/main-screen/components/
 import {SettlementsComponent} from "./pages/main/components/main-screen/components/settlements/settlements.component";
 
 export const routes: Routes = [
-  {path: '', component: MainComponent, children: [
+  {path: 'main', component: MainComponent, children: [
       {path: 'counties', component: CountiesComponent},
       {path: 'settlements', component: SettlementsComponent},
       {path: '', pathMatch: 'full', redirectTo: 'counties'}
-    ]}
+    ]},
+  {path: '', pathMatch: 'full', redirectTo: 'main'}
 ];
 
