@@ -1,8 +1,10 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {SettlementComponent} from "./components/settlement/settlement.component";
 import {ISettlements} from "./interfaces/settlements.interface";
+import {Observable} from "rxjs";
+import {SettlementsService} from "./service/settlements.service";
 
 @Component({
   selector: 'settlements',
@@ -12,30 +14,13 @@ import {ISettlements} from "./interfaces/settlements.interface";
   styleUrl: './settlements.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SettlementsComponent {
-  settlements: ISettlements[] = [
-    {
-      name: 'Наслененный пункт',
-      churches: ['церковь 1', 'церковь 2'],
-      county: 'Уезд 1'
-    },
-    {
-      name: 'Наслененный пункт',
-      churches: ['церковь 1', 'церковь 2'],
-      county: 'Уезд 2'
-    },
-    {
-      name: 'Наслененный пункт',
-      churches: ['церковь 1', 'церковь 2'],
-      county: 'Уезд 3'
-    },
-    {
-      name: 'Наслененный пункт',
-      churches: ['церковь 1', 'церковь 2']
-    },
-    {
-      name: 'Наслененный пункт',
-      churches: ['церковь 1', 'церковь 2']
-    },
-  ]
+export class SettlementsComponent implements OnInit{
+  settlements!: Observable<ISettlements[]>;
+
+  constructor(private readonly SettlementsService: SettlementsService) {
+  }
+
+  ngOnInit(): void {
+    this.settlements = this.SettlementsService.getSettlements();
+  }
 }

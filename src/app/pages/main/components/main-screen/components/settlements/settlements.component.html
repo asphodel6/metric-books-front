@@ -1,5 +1,5 @@
-<cdk-virtual-scroll-viewport itemSize="25" class="settlements">
-  <div *cdkVirtualFor="let settlement of settlements" class="settlement">
+<cdk-virtual-scroll-viewport itemSize="25" class="settlements" appendOnly="true">
+  <div *cdkVirtualFor="let settlement of settlements | async" class="settlement">
     <settlement [settlement]="settlement"></settlement>
   </div>
 </cdk-virtual-scroll-viewport>

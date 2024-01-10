@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {ISettlements} from "../../interfaces/settlements.interface";
-import {animate, state, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'settlement',
@@ -9,18 +8,7 @@ import {animate, state, style, transition, trigger} from "@angular/animations";
   imports: [CommonModule],
   templateUrl: './settlement.component.html',
   styleUrl: './settlement.component.less',
-  changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('openClose', [
-      state('open', style({
-        height: 'auto'
-      })),
-      state('closed', style({})),
-      transition('* => open', [
-        animate('0.3s')
-      ])
-    ]),
-  ]
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettlementComponent {
 @Input() settlement!: ISettlements;

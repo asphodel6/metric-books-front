@@ -1,9 +1,9 @@
 <div class="county">
   <div class="name" [ngClass]="isOpen ? 'open' : ''" (click)="openInfo()">
-    <img [src]="imgPath" width="8px" height="8px">{{county.name}}
+    <img [src]="imgPath" width="8px" height="8px">{{county.u_name}}
   </div>
-  <ng-container *ngIf="isOpen" [@openClose]="isOpen ? 'open' : 'close'">
-    <div *ngFor="let settlement of county.settlements" class="settlements">
+  <ng-container *ngIf="isOpen">
+    <div *ngFor="let settlement of county.nas_punkt" class="settlements">
       <county-settlement [settlement]="settlement"></county-settlement>
     </div>
   </ng-container>

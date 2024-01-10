@@ -1,5 +1,5 @@
-<cdk-virtual-scroll-viewport itemSize="25" class="counties">
-  <div *cdkVirtualFor="let county of counties" class="county">
+<cdk-virtual-scroll-viewport itemSize="25" class="counties" appendOnly="true">
+  <div *cdkVirtualFor="let county of counties | async" class="county">
     <county [county]="county"></county>
   </div>
 </cdk-virtual-scroll-viewport>

@@ -1,15 +1,15 @@
 <div class="wrapper">
   <div class="settlement">
     <div class="name" [ngClass]="isOpen ? 'open' : ''" (click)="openInfo()">
-      <img [src]="imgPath" width="8px" height="8px">{{settlement.name}}
+      <img [src]="imgPath" width="8px" height="8px">{{settlement.np_name}}
     </div>
-    <ng-container *ngIf="isOpen" [@openClose]="isOpen ? 'open' : 'close'">
-      <div *ngFor="let church of settlement.churches" class="churches">
-        {{church}}
+    <ng-container *ngIf="isOpen">
+      <div *ngFor="let church of settlement.church" class="churches">
+        {{church.c_name}}
       </div>
     </ng-container>
   </div>
   <div class="county">
-    {{settlement.county}}
+    -
   </div>
 </div>

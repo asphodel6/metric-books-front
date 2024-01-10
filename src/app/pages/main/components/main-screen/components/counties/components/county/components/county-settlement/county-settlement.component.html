@@ -1,8 +1,8 @@
 <div class="settlement" (click)="openChurches()" [ngClass]="isOpenChurches ? 'open' : ''">
-  <img [src]="settlementImgPath" width="8px" height="8px">{{settlement.name}}
+  <img [src]="settlementImgPath" width="8px" height="8px">{{settlement.np_name}}
 </div>
 <ng-container *ngIf="isOpenChurches">
-  <div *ngFor="let church of settlement.churches" class="churches">
-    <div class="church">{{church}}</div>
+  <div *ngFor="let church of settlement.church" class="churches">
+    <div class="church">{{church.c_name}}</div>
   </div>
 </ng-container>

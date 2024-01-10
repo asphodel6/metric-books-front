@@ -1,8 +1,10 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {ICounties} from "./interfaces/counties.interface";
 import {CountyComponent} from "./components/county/county.component";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import {CountiesService} from "./service/counties.service";
+import {Observable, take} from "rxjs";
 
 @Component({
   selector: 'counties',
@@ -12,40 +14,13 @@ import {ScrollingModule} from "@angular/cdk/scrolling";
   styleUrl: './counties.component.less',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CountiesComponent {
-  counties: ICounties[] = [
-    {
-      name: 'Верхотурский',
-      settlements: [{
-        name: 'Город',
-        churches: ['церковь1', 'церковь2']
-      }]
-    },
-    {
-      name: 'Верхотурский',
-      settlements: [
-        {
-          name: 'Город',
-          churches: ['церковь1', 'церковь2']
-        },
-        {
-          name: 'Город',
-          churches: ['церковь1', 'церковь2']
-        },
-        {
-          name: 'Город',
-          churches: ['церковь1', 'церковь2']
-        },
-      ]
+export class CountiesComponent implements OnInit{
+  counties!: Observable<ICounties[]>;
 
-    }, {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-    {name: 'Верхотурский'},
-  ];
+  constructor(private CountiesService: CountiesService) {
+  }
+
+  ngOnInit(): void {
+    this.counties = this.CountiesService.getCounties();
+  }
 }

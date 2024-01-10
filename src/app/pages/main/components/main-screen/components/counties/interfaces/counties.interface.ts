@@ -1,6 +1,7 @@
 import {ISettlements} from "../../settlements/interfaces/settlements.interface";
 
 export interface ICounties {
-  name: string
-  settlements?: ISettlements[]
+  u_code: number;
+  u_name: string;
+  nas_punkt: ISettlements[];
 }
