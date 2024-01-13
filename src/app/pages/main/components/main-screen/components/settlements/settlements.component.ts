@@ -3,7 +3,7 @@ import {CommonModule} from '@angular/common';
 import {ScrollingModule} from "@angular/cdk/scrolling";
 import {SettlementComponent} from "./components/settlement/settlement.component";
 import {ISettlements} from "./interfaces/settlements.interface";
-import {Observable} from "rxjs";
+import {map, mergeMap, Observable} from "rxjs";
 import {SettlementsService} from "./service/settlements.service";
 
 @Component({

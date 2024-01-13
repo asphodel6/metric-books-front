@@ -1,9 +1,7 @@
-export interface ISettlementData {
-  year: string,
-  fund: string,
-  inventory: string,
-  case: string,
-  sheet: string,
-  documentType: string,
-  completeness: string
+export interface IChurchData {
+  met_year: string;
+  met_fond: string;
+  met_opis: string;
+  met_delo: string;
+  met_page: string;
 }

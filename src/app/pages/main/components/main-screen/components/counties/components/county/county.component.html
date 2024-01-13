@@ -4,7 +4,7 @@
   </div>
   <ng-container *ngIf="isOpen">
     <div *ngFor="let settlement of county.nas_punkt" class="settlements">
-      <county-settlement [settlement]="settlement"></county-settlement>
+      <county-settlement [settlement]="settlement" [countyName]="county.u_name"></county-settlement>
     </div>
   </ng-container>
 </div>

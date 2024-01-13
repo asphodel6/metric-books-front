@@ -1,8 +1,8 @@
 <div>
   <div class="heading">
-    <div>Уезд:<span>{{countyName}}</span></div>
-    <div>Населенный пункт:<span>{{settlementName}}</span></div>
-    <div>Церковь/мечеть:<span>{{churchName}}</span></div>
+    <div>Уезд:<span>{{countyName | async}}</span></div>
+    <div>Населенный пункт:<span>{{settlementName | async}}</span></div>
+    <div>Церковь/мечеть:<span>{{churchName | async}}</span></div>
   </div>
   <div class="edit-panel">
     <img src="assets/images/add-icon.svg">
@@ -17,17 +17,15 @@
       <div>Опись</div>
       <div>Дело</div>
       <div>Лист</div>
-      <div>Вид документа</div>
-      <div>Полнота</div>
     </div>
-    <div class="data" *ngFor="let dataItem of data">
-      <div>{{dataItem.year}}</div>
-      <div>{{dataItem.fund}}</div>
-      <div>{{dataItem.inventory}}</div>
-      <div>{{dataItem.case}}</div>
-      <div>{{dataItem.sheet}}</div>
-      <div>{{dataItem.documentType}}</div>
-      <div>{{dataItem.completeness}}</div>
-    </div>
+    <cdk-virtual-scroll-viewport itemSize="25" appendOnly="true" class="scroll">
+      <div class="data" *cdkVirtualFor="let dataItem of data | async">
+        <div>{{dataItem.met_year}}</div>
+        <div>{{dataItem.met_fond}}</div>
+        <div>{{dataItem.met_opis}}</div>
+        <div>{{dataItem.met_delo}}</div>
+        <div>{{dataItem.met_page}}</div>
+      </div>
+    </cdk-virtual-scroll-viewport>
   </div>
 </div>

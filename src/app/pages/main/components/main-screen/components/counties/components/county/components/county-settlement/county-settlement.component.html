@@ -3,6 +3,6 @@
 </div>
 <ng-container *ngIf="isOpenChurches">
   <div *ngFor="let church of settlement.church" class="churches">
-    <div class="church">{{church.c_name}}</div>
+    <div class="church" (click)="getChurchData(church)">{{church.c_name}}</div>
   </div>
 </ng-container>

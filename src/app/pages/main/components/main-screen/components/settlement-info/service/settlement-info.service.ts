@@ -1,52 +1,26 @@
-import { Injectable } from '@angular/core';
-import {ISettlementData} from "../interfaces/settlementData.interface";
+import {Injectable} from '@angular/core';
+import {IChurchData} from "../interfaces/settlementData.interface";
+import {BehaviorSubject, take} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../../../../../../../environments/environment.development";
 
-@Injectable()
-export class SettlementInfoService {
-  private _countyName: string = 'Название уезда';
-  private _settlementName: string = 'Название н/п';
-  private _churchName: string = 'Название церкви';
-  private _dataOfSettlement: ISettlementData[] = [{
-    year: 'Год',
-    fund: 'Фонд',
-    inventory: 'Опись',
-    case: 'Дело',
-    sheet: 'Лист',
-    documentType: 'Вид документа',
-    completeness: 'Полнота'
-  },
-    {
-      year: 'Год',
-      fund: 'Фонд',
-      inventory: 'Опись',
-      case: 'Дело',
-      sheet: 'Лист',
-      documentType: 'Вид документа',
-      completeness: 'Полнота'
-    },
-    {
-      year: '1999',
-      fund: 'Fund',
-      inventory: 'wasas,saasa,sasasa,assasa,asassa',
-      case: '1212112',
-      sheet: '21211',
-      documentType: 'Doc',
-      completeness: 'Full'
-    },]
+@Injectable({
+  providedIn: 'root'
+})
+export class SettlementInfoService{
+  countyName: BehaviorSubject<string> = new BehaviorSubject<string>('Название уезда');
+  settlementName: BehaviorSubject<string> = new BehaviorSubject<string>('Название н/п');
+  churchName: BehaviorSubject<string> = new BehaviorSubject<string>('Название церкви');
+  dataOfSettlement: BehaviorSubject<IChurchData[]> = new BehaviorSubject<IChurchData[]>([]);
 
-  get countyName(): string {
-    return this._countyName;
+  constructor(private readonly http: HttpClient) {
   }
 
-  get settlementName(): string {
-    return this._settlementName;
-  }
-
-  get churchName(): string {
-    return this._churchName;
-  }
-
-  get dataOfSettlement(): ISettlementData[] {
-    return this._dataOfSettlement;
+  getChurchData(code: number): void {
+      this.http.get<IChurchData[]>(`${environment.link}/data/${code}`).pipe(
+        take(1)
+      ).subscribe(
+        data => this.dataOfSettlement.next(data)
+      )
   }
 }
