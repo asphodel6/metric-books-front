@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {ISettlements} from "../../interfaces/settlements.interface";
+import {IChurch, ISettlements} from "../../interfaces/settlements.interface";
+import {SettlementInfoService} from "../../../settlement-info/service/settlement-info.service";
 
 @Component({
   selector: 'settlement',
@@ -16,6 +17,9 @@ export class SettlementComponent {
   imgPath: string = 'assets/images/open.svg'
   isOpen: boolean = false;
 
+  constructor(private SettlementInfoService: SettlementInfoService) {
+  }
+
   openInfo(): void {
     if (this.imgPath === 'assets/images/open.svg') {
       this.imgPath = 'assets/images/close.svg'
@@ -24,5 +28,12 @@ export class SettlementComponent {
       this.imgPath = 'assets/images/open.svg';
       this.isOpen = false;
     }
+  }
+
+  getChurchData(church: IChurch): void {
+    this.SettlementInfoService.settlementName.next(this.settlement.np_name);
+    this.SettlementInfoService.churchName.next(church.c_name);
+    // this.SettlementInfoService.countyName.next('');
+    this.SettlementInfoService.getChurchData(church.c_code);
   }
 }

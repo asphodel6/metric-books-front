@@ -4,7 +4,7 @@
       <img [src]="imgPath" width="8px" height="8px">{{settlement.np_name}}
     </div>
     <ng-container *ngIf="isOpen">
-      <div *ngFor="let church of settlement.church" class="churches">
+      <div *ngFor="let church of settlement.church" (click)="getChurchData(church)" class="churches">
         {{church.c_name}}
       </div>
     </ng-container>
