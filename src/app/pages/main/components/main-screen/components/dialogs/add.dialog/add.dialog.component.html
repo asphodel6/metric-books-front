@@ -1,0 +1,13 @@
+<div class="dialog">
+  <div class="header">
+    <div class="title">Добавить {{data.type | lowercase}}</div>
+    <img src="assets/images/iconcancel.svg" width="15" height="15" (click)="closeDialog()">
+  </div>
+  <div class="content">
+    <div class="content-name">{{data.type}}:</div>
+    <input class="church" [(ngModel)]="name">
+  </div>
+  <div class="button-wrapper">
+    <button mat-dialog-close (click)="add()">Сохранить</button>
+  </div>
+</div>

@@ -1,0 +1,13 @@
+<div class="dialog">
+  <div class="header">
+    <div class="title">Удалить {{data.type | lowercase}}</div>
+    <img src="assets/images/iconcancel.svg" width="15" height="15" (click)="closeDialog()">
+  </div>
+  <div class="content">
+    <div class="content-name">{{data.type}}:</div>
+    <input class="church" [value]="data.name" disabled>
+  </div>
+  <div class="button-wrapper">
+    <button mat-dialog-close (click)="delete()">Удалить</button>
+  </div>
+</div>

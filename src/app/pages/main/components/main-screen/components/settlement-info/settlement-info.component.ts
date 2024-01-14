@@ -4,6 +4,8 @@ import {SettlementInfoService} from "./service/settlement-info.service";
 import {IChurchData} from "./interfaces/settlementData.interface";
 import {BehaviorSubject} from "rxjs";
 import {ScrollingModule} from "@angular/cdk/scrolling";
+import {MatDialog} from "@angular/material/dialog";
+import {DeleteDialogComponent} from "../dialogs/delete.dialog/delete.dialog.component";
 
 @Component({
   selector: 'settlement-info',

@@ -35,5 +35,6 @@ export class CountySettlementComponent {
     this.SettlementInfoService.churchName.next(church.c_name);
     this.SettlementInfoService.countyName.next(this.countyName);
     this.SettlementInfoService.getChurchData(church.c_code);
+    this.SettlementInfoService.churchCode = church.c_code;
   }
 }
