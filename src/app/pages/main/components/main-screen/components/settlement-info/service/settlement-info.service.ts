@@ -35,7 +35,6 @@ export class SettlementInfoService{
   }
 
   deleteChurch(code: number): void {
-    console.log(code);
     this.http.delete(`${environment.link}/church/${code}`).pipe(
       take(1)
     ).subscribe(
