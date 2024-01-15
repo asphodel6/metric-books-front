@@ -1,11 +1,11 @@
 <div>
   <div class="heading">
-    <div>Уезд:<span>{{countyName | async}}</span></div>
-    <div>Населенный пункт:<span>{{settlementName | async}}</span></div>
-    <div>Церковь/мечеть:<span>{{churchName | async}}</span></div>
+    <div>Уезд:<span>{{countyName$ | async}}</span></div>
+    <div>Населенный пункт:<span>{{settlementName$ | async}}</span></div>
+    <div>Церковь/мечеть:<span>{{churchName$ | async}}</span></div>
   </div>
   <div class="edit-panel">
-    <img src="assets/images/add-icon.svg">
+    <img src="assets/images/add-icon.svg" (click)="addData()">
     <img src="assets/images/edit-icon.svg">
     <img src="assets/images/delete-icon.svg">
     <img src="assets/images/copy-icon.svg">
@@ -19,7 +19,7 @@
       <div>Лист</div>
     </div>
     <cdk-virtual-scroll-viewport itemSize="25" appendOnly="true" class="scroll">
-      <div class="data" *cdkVirtualFor="let dataItem of data | async">
+      <div class="data" *cdkVirtualFor="let dataItem of data$ | async">
         <div>{{dataItem.met_year}}</div>
         <div>{{dataItem.met_fond}}</div>
         <div>{{dataItem.met_opis}}</div>

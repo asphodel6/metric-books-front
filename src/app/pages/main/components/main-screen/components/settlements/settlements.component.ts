@@ -15,12 +15,12 @@ import {SettlementsService} from "./service/settlements.service";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SettlementsComponent implements OnInit{
-  settlements!: Observable<ISettlements[]>;
+  settlements$!: Observable<ISettlements[]>;
 
   constructor(private readonly SettlementsService: SettlementsService) {
   }
 
   ngOnInit(): void {
-    this.settlements = this.SettlementsService.getSettlements();
+    this.settlements$ = this.SettlementsService.getSettlements();
   }
 }

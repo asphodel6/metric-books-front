@@ -15,12 +15,12 @@ import {Observable, take} from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CountiesComponent implements OnInit{
-  counties!: Observable<ICounties[]>;
+  counties$!: Observable<ICounties[]>;
 
   constructor(private CountiesService: CountiesService) {
   }
 
   ngOnInit(): void {
-    this.counties = this.CountiesService.getCounties();
+    this.counties$ = this.CountiesService.getCounties();
   }
 }

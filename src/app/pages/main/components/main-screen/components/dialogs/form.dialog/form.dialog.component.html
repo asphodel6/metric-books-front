@@ -1,0 +1,47 @@
+<div class="dialog">
+  <div class="header">
+    <div class="title">{{data.type}} записи</div>
+    <img src="assets/images/iconcancel.svg" width="15" height="15" (click)="closeDialog()">
+  </div>
+  <div class="info">
+    <div class="info-wrapper">
+      <div class="color-blue">Уезд:</div>
+      <div>{{service.countyName | async}}</div>
+    </div>
+    <div class="info-wrapper">
+      <div class="color-blue">Населенный пункт:</div>
+      <div>{{service.settlementName | async}}</div>
+    </div>
+    <div class="info-wrapper">
+      <div class="color-blue">Церковь/мечеть:</div>
+      <div>{{service.churchName | async}}</div>
+    </div>
+  </div>
+  <form [formGroup]="form" (ngSubmit)="add()">
+    <div class="content">
+      <div class="content-wrapper">
+        <div class="content-name">Год</div>
+        <input class="church" formControlName="met_year">
+      </div>
+      <div class="content-wrapper">
+        <div class="content-name">Фонд</div>
+        <input class="church" formControlName="met_fond">
+      </div>
+      <div class="content-wrapper">
+        <div class="content-name">Опись</div>
+        <input class="church" formControlName="met_opis">
+      </div>
+      <div class="content-wrapper">
+        <div class="content-name">Дело</div>
+        <input class="church" formControlName="met_delo">
+      </div>
+      <div class="content-wrapper">
+        <div class="content-name">Лист</div>
+        <input class="church" formControlName="met_page">
+      </div>
+    </div>
+    <div class="button-wrapper">
+      <button mat-dialog-close type="submit" [disabled]="form.invalid">Сохранить</button>
+    </div>
+  </form>
+</div>

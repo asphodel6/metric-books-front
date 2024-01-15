@@ -42,6 +42,14 @@ export class SettlementInfoService{
         complete: () => window.location.reload()});
   }
 
+  addData(data: IChurchData): void {
+    this.http.post(`${environment.link}/data/${this.churchCode}/${data.met_year}/${data.met_fond}/${data.met_opis}/${data.met_delo}/${data.met_page}`, {}).pipe(
+      take(1)
+    ).subscribe(
+      {error: error => console.log(error),
+        complete: () => this.getChurchData(this.churchCode)});
+  }
+
   get churchCode(): number {
     return this._churchCode;
   }

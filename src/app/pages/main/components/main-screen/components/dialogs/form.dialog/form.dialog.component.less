@@ -28,10 +28,10 @@ button {
 .content {
   color: black;
   margin-top: 32px;
-  display: flex;
   font-size: 14px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 16px;
 }
 
 .button-wrapper {
@@ -54,6 +54,32 @@ button {
   height: 32px;
   border-radius: 4px;
   background-color: white;
+}
+
+.info-wrapper {
+  display: flex;
+  justify-content: left;
+  gap: 8px;
+  flex-direction: row;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 32px;
+  font-size: 14px;
+}
+
+.color-blue {
+  color: @color-blue;
+  font-weight: 500;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
 }
 
 input {
